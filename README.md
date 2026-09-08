@@ -45,6 +45,9 @@ Spark jobs often run slowly due to hidden execution issues (shuffle-heavy stages
 ```text
 .
 ├── .github/workflows/ci.yml
+├── docs/
+│   ├── ARCHITECTURE.md
+│   └── spark-event-log-analyzer-guide.pdf
 ├── sample_data/
 │   ├── mock_event_log.jsonl
 │   └── sample_report.md
@@ -65,6 +68,11 @@ Spark jobs often run slowly due to hidden execution issues (shuffle-heavy stages
 ```
 
 ## 4) Architecture overview
+
+> **New to the project?** `docs/spark-event-log-analyzer-guide.pdf` is a 32-page end-to-end guide:
+> Spark fundamentals for beginners, a module-by-module walkthrough, a fully worked example traced
+> from the sample log to its six findings, and a system design analysis of how each component
+> behaves as load increases (measured against event logs of up to 1.77 GB).
 
 ### Data flow
 1. **Input:** Spark event log (`SparkListener*` JSON events).
