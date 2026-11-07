@@ -28,7 +28,7 @@ The [synthetic sample](src/spark_perf_analyzer/data/demo.jsonl) contains 2 jobs,
 
 ## Local setup
 
-Python 3.10+; CI uses 3.10/3.11/3.12. Node 24, pnpm 10.28.2. Render pins Python 3.12.
+Python 3.11+ for the web app; the original dependency-free CLI retains Python 3.10 support. CI covers web on 3.11/3.12/3.13 and the CLI on 3.10. Node 24, pnpm 10.28.2. Render pins Python 3.12.
 
 ```sh
 python -m venv .venv

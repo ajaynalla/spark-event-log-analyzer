@@ -14,7 +14,7 @@ This separate repository follows RateLab's GitHub/CI/Blueprint pattern. Its Blue
 |---|---|
 | `ALLOWED_ORIGINS` | Comma-separated exact frontend origins, no wildcard |
 | `VITE_API_BASE_URL` | Backend HTTPS origin, no path |
-| Python / Node | 3.12.14 / 24.22.1 |
+| Python / Node | 3.12.14 / 24.22.1; web dependencies require Python 3.11+ |
 | Health | `/health`: status ok, version 1.0.0 |
 | Upload | Raw UTF-8 JSONL, 25 MiB, no compression |
 | Concurrency | One worker, one analysis slot; Uvicorn HTTP concurrency 12 |
