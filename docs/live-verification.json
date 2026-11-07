@@ -1,0 +1,96 @@
+{
+  "verified_at_utc": "2026-11-07T17:48:07Z",
+  "frontend": "https://sparklens-ajaynalla.onrender.com",
+  "backend": "https://sparklens-api-ajaynalla.onrender.com",
+  "checks": [
+    {
+      "check": "health",
+      "status": 200,
+      "elapsed_ms": 242.7
+    },
+    {
+      "check": "limits",
+      "status": 200,
+      "elapsed_ms": 70.4
+    },
+    {
+      "check": "sample analysis",
+      "status": 200,
+      "elapsed_ms": 55.0
+    },
+    {
+      "check": "sample download",
+      "status": 200,
+      "elapsed_ms": 85.5
+    },
+    {
+      "check": "sample upload",
+      "status": 200,
+      "elapsed_ms": 63.4
+    },
+    {
+      "check": "Apache Spark fixture upload",
+      "status": 200,
+      "elapsed_ms": 102.8
+    },
+    {
+      "check": "invalid log",
+      "status": 422,
+      "elapsed_ms": 50.3
+    },
+    {
+      "check": "unsupported multipart",
+      "status": 415,
+      "elapsed_ms": 72.0
+    },
+    {
+      "check": "frontend CORS",
+      "status": 200,
+      "elapsed_ms": 76.4
+    },
+    {
+      "check": "frontend HTML",
+      "status": 200,
+      "elapsed_ms": 131.9
+    },
+    {
+      "check": "25,000-task supported boundary",
+      "status": 200,
+      "elapsed_ms": 12427.9,
+      "upload_bytes": 10480560,
+      "server_processing_ms": 6108.16
+    }
+  ],
+  "sample_summary": {
+    "jobs": 2,
+    "stages": 3,
+    "stage_attempts": 3,
+    "tasks": 26,
+    "completed_tasks": 25,
+    "failed_tasks": 1,
+    "incomplete_tasks": 0,
+    "duration_ms": 22000,
+    "duration_source": "application timestamps",
+    "shuffle_read_bytes": 914358272,
+    "shuffle_write_bytes": 964689920,
+    "stragglers": 1,
+    "skewed_stages": 1,
+    "executors": 3
+  },
+  "upstream_summary": {
+    "jobs": 3,
+    "stages": 3,
+    "stage_attempts": 3,
+    "tasks": 6,
+    "completed_tasks": 6,
+    "failed_tasks": 0,
+    "incomplete_tasks": 0,
+    "duration_ms": 62168,
+    "duration_source": "application timestamps",
+    "shuffle_read_bytes": 0,
+    "shuffle_write_bytes": 0,
+    "stragglers": 0,
+    "skewed_stages": 0,
+    "executors": 3
+  }
+}

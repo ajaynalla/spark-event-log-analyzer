@@ -1,0 +1,20 @@
+{
+  "frontend_commit": "5605b3865606a8917907aae011cb4d3e2c612e35",
+  "assets": [
+    {
+      "path": "/assets/index-BkeiBBMU.js",
+      "sha256": "01d7bd75f0cdbd8342e5e40885d22a919f271701829bf90842b1024676cc40c6",
+      "matches_local_production_build": true
+    },
+    {
+      "path": "/assets/index-NXvMq5Mv.css",
+      "sha256": "28f3f6516977e3b1b2a0859716b795757c70d2dc487b9c79d9161d4cbdad5acd",
+      "matches_local_production_build": true
+    }
+  ],
+  "backend_health": {
+    "status": "ok",
+    "version": "1.0.0",
+    "commit": "10144c4acdefcf699ec6b2d2085ebde7f6a94599"
+  }
+}
