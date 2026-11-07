@@ -23,7 +23,10 @@ class EventLogParser:
                 if not line:
                     continue
                 try:
-                    events.append(json.loads(line))
+                    event = json.loads(line)
+                    if not isinstance(event, dict) or not isinstance(event.get("Event"), str):
+                        raise ValueError(f"Expected an event object with an Event name at line {line_number}")
+                    events.append(event)
                 except json.JSONDecodeError as exc:
                     raise ValueError(
                         f"Invalid JSON in {self.path} at line {line_number}: {exc.msg}"
@@ -44,6 +47,7 @@ def extract_application_metadata(events: list[dict[str, Any]]) -> tuple[str, str
     for event in events:
         if event.get("Event") == "SparkListenerApplicationStart":
             app_name = str(event.get("App Name", app_name))
+            app_id = str(event.get("App ID", app_id))
         if event.get("Event") == "SparkListenerEnvironmentUpdate":
             props = event.get("Spark Properties") or {}
             app_id = str(props.get("spark.app.id", app_id))

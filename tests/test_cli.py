@@ -3,8 +3,8 @@ from pathlib import Path
 from spark_perf_analyzer.cli import main
 
 
-def test_cli_generates_markdown_report(monkeypatch) -> None:
-    output = Path("/tmp/spark_perf_report.md")
+def test_cli_generates_markdown_report(monkeypatch, tmp_path) -> None:
+    output = tmp_path / "spark_perf_report.md"
     if output.exists():
         output.unlink()
 

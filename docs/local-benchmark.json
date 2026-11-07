@@ -1,0 +1,10 @@
+{
+  "tasks": 25000,
+  "input_bytes": 9955560,
+  "response_bytes": 7382507,
+  "analysis_ms": 719.0,
+  "total_ms": 1016.5,
+  "peak_process_rss_mib": 89.3,
+  "platform": "win32",
+  "python": "3.12.14"
+}

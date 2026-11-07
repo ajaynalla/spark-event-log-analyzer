@@ -1,0 +1,44 @@
+{"Event":"IgnoredForCompatibilityTest"}
+{"Event":"IgnoredForCompatibilityTest"}
+{"Event":"IgnoredForCompatibilityTest"}
+{"Event":"SparkListenerApplicationStart","Timestamp":1554755984286,"App Name":"Sanitized upstream Spark test","App ID":"upstream-test"}
+{"Event":"IgnoredForCompatibilityTest"}
+{"Event":"IgnoredForCompatibilityTest"}
+{"Event":"IgnoredForCompatibilityTest"}
+{"Event":"IgnoredForCompatibilityTest"}
+{"Event":"IgnoredForCompatibilityTest"}
+{"Event":"IgnoredForCompatibilityTest"}
+{"Event":"SparkListenerJobStart","Job ID":0,"Stage IDs":[0],"Submission Time":1554755995741}
+{"Event":"SparkListenerStageSubmitted","Stage Info":{"Stage ID":0,"Stage Attempt ID":0,"Number of Tasks":2,"Parent IDs":[],"Submission Time":1554755995763,"Stage Name":"Sanitized upstream test stage"}}
+{"Event":"SparkListenerTaskStart","Stage ID":0,"Stage Attempt ID":0,"Task Info":{"Task ID":0,"Index":0,"Attempt":0,"Launch Time":1554755996103,"Finish Time":0,"Executor ID":"3"},"Task End Reason":{"Reason":"Unknown"},"Task Metrics":{}}
+{"Event":"SparkListenerTaskStart","Stage ID":0,"Stage Attempt ID":0,"Task Info":{"Task ID":1,"Index":1,"Attempt":0,"Launch Time":1554755996119,"Finish Time":0,"Executor ID":"1"},"Task End Reason":{"Reason":"Unknown"},"Task Metrics":{}}
+{"Event":"SparkListenerTaskEnd","Stage ID":0,"Stage Attempt ID":0,"Task Info":{"Task ID":0,"Index":0,"Attempt":0,"Launch Time":1554755996103,"Finish Time":1554756012321,"Executor ID":"3"},"Task End Reason":{"Reason":"Success"},"Task Metrics":{"Executor Run Time":15006,"JVM GC Time":128,"Input Metrics":{"Bytes Read":0},"Shuffle Read Metrics":{"Remote Bytes Read":0,"Local Bytes Read":0,"Fetch Wait Time":0},"Shuffle Write Metrics":{"Shuffle Bytes Written":0}}}
+{"Event":"SparkListenerTaskEnd","Stage ID":0,"Stage Attempt ID":0,"Task Info":{"Task ID":1,"Index":1,"Attempt":0,"Launch Time":1554755996119,"Finish Time":1554756012377,"Executor ID":"1"},"Task End Reason":{"Reason":"Success"},"Task Metrics":{"Executor Run Time":14929,"JVM GC Time":125,"Input Metrics":{"Bytes Read":0},"Shuffle Read Metrics":{"Remote Bytes Read":0,"Local Bytes Read":0,"Fetch Wait Time":0},"Shuffle Write Metrics":{"Shuffle Bytes Written":0}}}
+{"Event":"IgnoredForCompatibilityTest"}
+{"Event":"IgnoredForCompatibilityTest"}
+{"Event":"IgnoredForCompatibilityTest"}
+{"Event":"SparkListenerStageCompleted","Stage Info":{"Stage ID":0,"Stage Attempt ID":0,"Number of Tasks":2,"Parent IDs":[],"Submission Time":1554755995763,"Completion Time":1554756012379,"Stage Name":"Sanitized upstream test stage"}}
+{"Event":"SparkListenerJobEnd","Job ID":0,"Completion Time":1554756012383,"Job Result":{"Result":"JobSucceeded"}}
+{"Event":"SparkListenerJobStart","Job ID":1,"Stage IDs":[1],"Submission Time":1554756012414}
+{"Event":"SparkListenerStageSubmitted","Stage Info":{"Stage ID":1,"Stage Attempt ID":0,"Number of Tasks":2,"Parent IDs":[],"Submission Time":1554756012416,"Stage Name":"Sanitized upstream test stage"}}
+{"Event":"SparkListenerJobStart","Job ID":2,"Stage IDs":[2],"Submission Time":1554756012429}
+{"Event":"SparkListenerStageSubmitted","Stage Info":{"Stage ID":2,"Stage Attempt ID":0,"Number of Tasks":2,"Parent IDs":[],"Submission Time":1554756012430,"Stage Name":"Sanitized upstream test stage"}}
+{"Event":"SparkListenerTaskStart","Stage ID":1,"Stage Attempt ID":0,"Task Info":{"Task ID":2,"Index":0,"Attempt":0,"Launch Time":1554756012429,"Finish Time":0,"Executor ID":"3"},"Task End Reason":{"Reason":"Unknown"},"Task Metrics":{}}
+{"Event":"SparkListenerTaskStart","Stage ID":1,"Stage Attempt ID":0,"Task Info":{"Task ID":3,"Index":1,"Attempt":0,"Launch Time":1554756012430,"Finish Time":0,"Executor ID":"1"},"Task End Reason":{"Reason":"Unknown"},"Task Metrics":{}}
+{"Event":"SparkListenerTaskStart","Stage ID":2,"Stage Attempt ID":0,"Task Info":{"Task ID":4,"Index":0,"Attempt":0,"Launch Time":1554756016145,"Finish Time":0,"Executor ID":"2"},"Task End Reason":{"Reason":"Unknown"},"Task Metrics":{}}
+{"Event":"SparkListenerTaskStart","Stage ID":2,"Stage Attempt ID":0,"Task Info":{"Task ID":5,"Index":1,"Attempt":0,"Launch Time":1554756026880,"Finish Time":0,"Executor ID":"1"},"Task End Reason":{"Reason":"Unknown"},"Task Metrics":{}}
+{"Event":"SparkListenerTaskEnd","Stage ID":1,"Stage Attempt ID":0,"Task Info":{"Task ID":3,"Index":1,"Attempt":0,"Launch Time":1554756012430,"Finish Time":1554756026881,"Executor ID":"1"},"Task End Reason":{"Reason":"Success"},"Task Metrics":{"Executor Run Time":14413,"JVM GC Time":11,"Input Metrics":{"Bytes Read":2500050000},"Shuffle Read Metrics":{"Remote Bytes Read":0,"Local Bytes Read":0,"Fetch Wait Time":0},"Shuffle Write Metrics":{"Shuffle Bytes Written":0}}}
+{"Event":"SparkListenerTaskEnd","Stage ID":1,"Stage Attempt ID":0,"Task Info":{"Task ID":2,"Index":0,"Attempt":0,"Launch Time":1554756012429,"Finish Time":1554756027226,"Executor ID":"3"},"Task End Reason":{"Reason":"Success"},"Task Metrics":{"Executor Run Time":14738,"JVM GC Time":23,"Input Metrics":{"Bytes Read":2500050000},"Shuffle Read Metrics":{"Remote Bytes Read":0,"Local Bytes Read":0,"Fetch Wait Time":0},"Shuffle Write Metrics":{"Shuffle Bytes Written":0}}}
+{"Event":"IgnoredForCompatibilityTest"}
+{"Event":"IgnoredForCompatibilityTest"}
+{"Event":"IgnoredForCompatibilityTest"}
+{"Event":"SparkListenerStageCompleted","Stage Info":{"Stage ID":1,"Stage Attempt ID":0,"Number of Tasks":2,"Parent IDs":[],"Submission Time":1554756012416,"Completion Time":1554756027227,"Stage Name":"Sanitized upstream test stage"}}
+{"Event":"SparkListenerJobEnd","Job ID":1,"Completion Time":1554756027227,"Job Result":{"Result":"JobSucceeded"}}
+{"Event":"SparkListenerTaskEnd","Stage ID":2,"Stage Attempt ID":0,"Task Info":{"Task ID":5,"Index":1,"Attempt":0,"Launch Time":1554756026880,"Finish Time":1554756041071,"Executor ID":"1"},"Task End Reason":{"Reason":"Success"},"Task Metrics":{"Executor Run Time":14080,"JVM GC Time":11,"Input Metrics":{"Bytes Read":2500050000},"Shuffle Read Metrics":{"Remote Bytes Read":0,"Local Bytes Read":0,"Fetch Wait Time":0},"Shuffle Write Metrics":{"Shuffle Bytes Written":0}}}
+{"Event":"SparkListenerTaskEnd","Stage ID":2,"Stage Attempt ID":0,"Task Info":{"Task ID":4,"Index":0,"Attempt":0,"Launch Time":1554756016145,"Finish Time":1554756046447,"Executor ID":"2"},"Task End Reason":{"Reason":"Success"},"Task Metrics":{"Executor Run Time":29084,"JVM GC Time":121,"Input Metrics":{"Bytes Read":2500050000},"Shuffle Read Metrics":{"Remote Bytes Read":0,"Local Bytes Read":0,"Fetch Wait Time":0},"Shuffle Write Metrics":{"Shuffle Bytes Written":0}}}
+{"Event":"IgnoredForCompatibilityTest"}
+{"Event":"IgnoredForCompatibilityTest"}
+{"Event":"IgnoredForCompatibilityTest"}
+{"Event":"SparkListenerStageCompleted","Stage Info":{"Stage ID":2,"Stage Attempt ID":0,"Number of Tasks":2,"Parent IDs":[],"Submission Time":1554756012430,"Completion Time":1554756046447,"Stage Name":"Sanitized upstream test stage"}}
+{"Event":"SparkListenerJobEnd","Job ID":2,"Completion Time":1554756046448,"Job Result":{"Result":"JobSucceeded"}}
+{"Event":"SparkListenerApplicationEnd","Timestamp":1554756046454}

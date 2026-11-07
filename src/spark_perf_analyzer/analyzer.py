@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-from statistics import mean, quantiles
+from statistics import mean
+from math import ceil
 from typing import Any
 
 from .heuristics import run_all_rules
@@ -29,6 +30,10 @@ class SparkPerformanceAnalyzer:
 
     def analyze(self, event_log_path: str) -> AnalysisReport:
         events = EventLogParser(event_log_path).load()
+        return self.analyze_events(events)
+
+    def analyze_events(self, events: list[dict[str, Any]]) -> AnalysisReport:
+        """Shared entry point for the CLI and bounded web ingestion."""
         app_id, app_name = extract_application_metadata(events)
         stage_metadata = extract_stage_metadata(events)
         task_events = group_task_events(events)
@@ -61,26 +66,32 @@ class SparkPerformanceAnalyzer:
         shuffle_write = sum(task.shuffle_write_bytes for task in tasks)
 
         runtime_avg = mean(runtimes) if runtimes else 0.0
-        runtime_p95 = quantiles(runtimes, n=20)[18] if len(runtimes) >= 20 else (max(runtimes) if runtimes else 0.0)
+        runtime_p95 = sorted(runtimes)[ceil(.95 * len(runtimes)) - 1] if runtimes else 0.0
         runtime_max = max(runtimes) if runtimes else 0
         skew_ratio = (runtime_max / runtime_avg) if runtime_avg else 0.0
         imbalance_ratio = self._partition_imbalance_ratio(tasks)
 
         completed = sum(1 for task in tasks if task.status == "Success")
         failed = sum(1 for task in tasks if task.status != "Success")
-        unique_task_ids = {task.task_id for task in tasks}
-        retried_tasks = max(0, len(tasks) - len(unique_task_ids))
+        partition_ids = {event.get("Task Info", {}).get("Index") if event.get("Task Info", {}).get("Index") is not None else task.task_id
+                         for event, task in zip(stage_task_events, tasks)}
+        retried_tasks = max(0, len(tasks) - len(partition_ids))
+        starts = [e.get("Task Info", {}).get("Launch Time") for e in stage_task_events]
+        ends = [e.get("Task Info", {}).get("Finish Time") for e in stage_task_events]
+        starts = [v for v in starts if isinstance(v, (int, float))]
+        ends = [v for v in ends if isinstance(v, (int, float))]
+        elapsed = max(0, max(ends) - min(starts)) if starts and ends else 0
 
         return StageMetrics(
             stage_id=stage_id,
             stage_name=str(meta.get("stage_name", f"stage-{stage_id}")),
             job_ids=list(meta.get("job_ids") or []),
             parent_ids=list(meta.get("parent_ids") or []),
-            num_tasks=_safe_int(meta.get("num_tasks")) or len(unique_task_ids),
+            num_tasks=_safe_int(meta.get("num_tasks")) or len(partition_ids),
             completed_tasks=completed,
             failed_tasks=failed,
             retried_tasks=retried_tasks,
-            duration_ms=int(sum(runtimes)),
+            duration_ms=int(elapsed),
             shuffle_read_bytes=shuffle_read,
             shuffle_write_bytes=shuffle_write,
             runtime_avg_ms=runtime_avg,
@@ -98,6 +109,9 @@ class SparkPerformanceAnalyzer:
         input_metrics = metrics.get("Input Metrics") or {}
         output_metrics = metrics.get("Output Metrics") or {}
 
+        reason = event.get("Task End Reason", "Unknown")
+        if isinstance(reason, dict):
+            reason = reason.get("Reason", "Unknown")
         return TaskMetrics(
             stage_id=stage_id,
             task_id=_safe_int(task_info.get("Task ID")),
@@ -108,7 +122,7 @@ class SparkPerformanceAnalyzer:
             shuffle_write_bytes=_safe_int(shuffle_write_metrics.get("Shuffle Bytes Written")),
             input_bytes=_safe_int(input_metrics.get("Bytes Read")),
             output_bytes=_safe_int(output_metrics.get("Bytes Written")),
-            status=str(event.get("Task End Reason", "Unknown")),
+            status=str(reason),
         )
 
     @staticmethod
